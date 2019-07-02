@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
 public class AppConfiguration implements ApplicationContextAware {
@@ -13,7 +14,11 @@ public class AppConfiguration implements ApplicationContextAware {
     @Bean
     public SpringResourceTemplateResolver springResourceTemplateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setApplicationContext();
+        templateResolver.setApplicationContext(applicationContext);
+        templateResolver.setPrefix("/WEB-INF/views/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        return templateResolver;
     }
 
     private ApplicationContext applicationContext;
