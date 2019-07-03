@@ -10,7 +10,6 @@
        http://www.springframework.org/schema/mvc
        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="come.codegym">
-    </context:component-scan>
+    <context:component-scan base-package="come.codegym"/>
     <mvc:annotation-driven/>
 </beans>
